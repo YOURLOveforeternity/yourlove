@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>Standalone Page</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* background: #23011c; */
+  /* background-image: linear-gradient(
+    0.25turn,
+    #100716,
+    #1f031b,
+    #1c0101,
+    #250212,
+    #200f02
+  ); */
+  background-color: rgb(24, 22, 22);
+  height: 100vh;
+  overflow: hidden;
+}
+
+.circle {
+  position: absolute;
+  bottom: 0;
+  width: 20px;
+  aspect-ratio: 1/1;
+  background: rgb(248, 248, 248);
+  box-shadow: 0 0 10px rgb(232, 9, 16), 0 0 20px rgb(148, 7, 7),
+    0 0 30px rgb(91, 3, 3), 0 0 40px rgb(68, 2, 10), 0 0 50px rgb(32, 1, 2);
+  border-radius: 50%;
+  animation: animate 5s linear forwards;
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(-100vh) skew(-5deg);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) skew(5deg);
+    opacity: 0;
+  }
+}
+
+.circle::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 25%;
+  width: 50%;
+  height: 100vh;
+  opacity: 0.5;
+}
+
+h1 {
+  margin: 10rem 0 0;
+  padding-bottom: 3rem;
+  display: flex;
+  justify-content: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: whitesmoke;
+  z-index: 1;
+}
+
+.red {
+  color: rgb(233, 71, 71);
+  font-family: cursive;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 7rem;
+  gap: 12rem; 
+}
+
+#yes {
+  width: 150px;
+  height: 200px;
+  font-size: 50px;
+  border-radius: 1rem 3rem 2rem 4rem;
+  z-index: 1;
+}
+
+#no {
+  width: 200px;
+  height: 150px;
+  font-size: 50px;
+  border-radius: 4rem 2rem 3rem 1rem;
+  z-index: 1;
+}
+
+.watermark {
+  opacity: 0.5;
+  color: rgb(243, 214, 214);
+  position: fixed;
+  top: 95%;
+  left: 47%;
+}
+
+.watermark a {
+  text-decoration: none;
+  color: rgb(243, 214, 214);
+}
+</style>
+<style>
+#up1 {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(
+    180deg,
+    rgba(47, 184, 255, 0.42) 31.77%,
+    #5c9df1 100%
+  );
+  mix-blend-mode: color-dodge;
+  -webkit-animation: up1 5s infinite alternate;
+  animation: up1 5s infinite alternate;
+  transition: 1s cubic-bezier(0.07, 0.8, 0.16, 1);
+}
+
+#up2 {
+  position: absolute;
+  right: -50px;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(
+    180deg,
+    rgba(47, 184, 255, 0.42) 31.77%,
+    #5c9df1 100%
+  );
+  mix-blend-mode: color-dodge;
+  -webkit-animation: up2 9s infinite alternate;
+  animation: up2 9s infinite alternate;
+  transition: 1s cubic-bezier(0.07, 0.8, 0.16, 1);
+}
+
+#up3 {
+  position: absolute;
+  width: 210px;
+  height: 140px;
+  background: linear-gradient(
+    180deg,
+    rgba(47, 184, 255, 0.42) 31.77%,
+    #5c9df1 100%
+  );
+  mix-blend-mode: color-dodge;
+  -webkit-animation: up3 7s infinite alternate;
+  animation: up3 7s infinite alternate;
+  transition: 1s cubic-bezier(0.07, 0.8, 0.16, 1);
+}
+
+#up4 {
+  position: absolute;
+  width: 410px;
+  height: 370px;
+  background: linear-gradient(
+    180deg,
+    rgba(47, 184, 255, 0.42) 31.77%,
+    #5c9df1 100%
+  );
+  mix-blend-mode: color-dodge;
+  -webkit-animation: up4 8s infinite alternate;
+  animation: up4 8s infinite alternate;
+  transition: 1s cubic-bezier(0.07, 0.8, 0.16, 1);
+}
+
+#up5 {
+  position: absolute;
+  right: -50px;
+  width: 370px;
+  height: 415px;
+  background: linear-gradient(
+    180deg,
+    rgba(47, 184, 255, 0.42) 31.77%,
+    #5c9df1 100%
+  );
+  mix-blend-mode: color-dodge;
+  -webkit-animation: up5 9s infinite alternate;
+  animation: up5 9s infinite alternate;
+  transition: 1s cubic-bezier(0.07, 0.8, 0.16, 1);
+}
+
+#up6 {
+  position: absolute;
+  right: -50px;
+  width: 258px;
+  height: 329px;
+  background: linear-gradient(
+    180deg,
+    rgba(47, 184, 255, 0.42) 31.77%,
+    #5c9df1 100%
+  );
+  mix-blend-mode: color-dodge;
+  -webkit-animation: up6 8s infinite alternate;
+  animation: up6 8s infinite alternate;
+  transition: 1s cubic-bezier(0.07, 0.8, 0.16, 1);
+}
+
+#down {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: linear-gradient(
+    180deg,
+    rgba(47, 184, 255, 0.42) 31.77%,
+    #5c9df1 100%
+  );
+  mix-blend-mode: color-dodge;
+  -webkit-animation: move 7s infinite alternate;
+  animation: down 7s infinite alternate;
+  transition: 1s cubic-bezier(0.07, 0.8, 0.16, 1);
+}
+
+#up1:hover {
+  -webkit-filter: blur(30px);
+  filter: blur(30px);
+  box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.6),
+    inset 100px 100px 0 0px #fa709a, inset 200px 200px 0 0px #fff,
+    inset 300px 300px 0 0px #784ba8;
+}
+
+#up2:hover {
+  -webkit-filter: blur(30px);
+  filter: blur(30px);
+  box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.6),
+    inset 100px 100px 0 0px #fa709a, inset 200px 200px 0 0px #fff,
+    inset 300px 300px 0 0px #784ba8;
+}
+
+#up3:hover {
+  -webkit-filter: blur(30px);
+  filter: blur(30px);
+  box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.6),
+    inset 100px 100px 0 0px #fa709a, inset 200px 200px 0 0px #fff,
+    inset 300px 300px 0 0px #784ba8;
+}
+
+#up4:hover {
+  -webkit-filter: blur(30px);
+  filter: blur(30px);
+  box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.6),
+    inset 100px 100px 0 0px #fa709a, inset 200px 200px 0 0px #fff,
+    inset 300px 300px 0 0px #784ba8;
+}
+
+#up5:hover {
+  -webkit-filter: blur(30px);
+  filter: blur(30px);
+  box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.6),
+    inset 100px 100px 0 0px #fa709a, inset 200px 200px 0 0px #fff,
+    inset 300px 300px 0 0px #784ba8;
+}
+
+#up6:hover {
+  -webkit-filter: blur(30px);
+  filter: blur(30px);
+  box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.6),
+    inset 100px 100px 0 0px #fa709a, inset 200px 200px 0 0px #fff,
+    inset 300px 300px 0 0px #784ba8;
+}
+
+#down:hover {
+  -webkit-filter: blur(20px);
+  filter: blur(20px);
+  box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.6),
+    inset 100px 100px 0 0px #fa709a, inset 200px 200px 0 0px #c8f4e8,
+    inset 300px 300px 0 0px #a389ce;
+}
+
+@-webkit-keyframes up1 {
+  from {
+    transform: translate(150px, -150px) rotate(-90deg);
+    border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
+  }
+
+  to {
+    transform: translate(300px, -250px) rotate(-30deg);
+    border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
+  }
+}
+
+@keyframes up1 {
+  from {
+    transform: translate(150px, -150px) rotate(-90deg);
+    border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
+  }
+
+  to {
+    transform: translate(300px, -250px) rotate(-30deg);
+    border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
+  }
+}
+
+@-webkit-keyframes up2 {
+  from {
+    transform: translate(-250px, 150px) rotate(90deg);
+    border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
+  }
+
+  to {
+    transform: translate(-500px, 150px) rotate(-30deg);
+    border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
+  }
+}
+
+@keyframes up2 {
+  from {
+    transform: translate(300px, -10px) rotate(-90deg);
+    border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
+  }
+
+  to {
+    transform: translate(100px, -450px) rotate(-30deg);
+    border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
+  }
+}
+
+@-webkit-keyframes up3 {
+  from {
+    transform: translate(-30px, -700px) rotate(-90deg);
+    border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
+  }
+
+  to {
+    transform: translate(-26px, -500px) rotate(-30deg);
+    border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
+  }
+}
+
+@keyframes up3 {
+  from {
+    transform: translate(-30px, -700px) rotate(-90deg);
+    border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
+  }
+
+  to {
+    transform: translate(-26px, -500px) rotate(90deg);
+    border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
+  }
+}
+
+@-webkit-keyframes up4 {
+  from {
+    transform: translate(-80px, -20px) rotate(-90deg);
+    border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
+  }
+
+  to {
+    transform: translate(200px, -900px) rotate(-40deg);
+    border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
+  }
+}
+
+@keyframes up4 {
+  from {
+    transform: translate(-80px, -20px) rotate(-90deg);
+    border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
+  }
+
+  to {
+    transform: translate(200px, -900px) rotate(-40deg);
+    border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
+  }
+}
+
+@-webkit-keyframes up5 {
+  from {
+    transform: translate(5px, 100px) rotate(-90deg);
+    border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
+  }
+
+  to {
+    transform: translate(10px, -600px) rotate(-30deg);
+    border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
+  }
+}
+
+@keyframes up5 {
+  from {
+    transform: translate(5px, 100px) rotate(-90deg);
+    border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
+  }
+
+  to {
+    transform: translate(10px, -600px) rotate(-30deg);
+    border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
+  }
+}
+
+@-webkit-keyframes up6 {
+  from {
+    transform: translate(-300px, -700px) rotate(-90deg);
+    border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
+  }
+
+  to {
+    transform: translate(-250px, -30px) rotate(-30deg);
+    border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
+  }
+}
+
+@keyframes up6 {
+  from {
+    transform: translate(-300px, -700px) rotate(-90deg);
+    border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
+  }
+
+  to {
+    transform: translate(-250px, -30px) rotate(-30deg);
+    border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
+  }
+}
+
+@-webkit-keyframes down {
+  from {
+    transform: translate(100px, -50px) rotate(-90deg);
+    border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
+  }
+
+  to {
+    transform: translate(500px, -100px) rotate(90deg);
+    border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
+  }
+}
+
+@keyframes down {
+  from {
+    transform: translate(10%, -50%) rotate(-90deg);
+    border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
+  }
+
+  to {
+    transform: translate(10%, -50%) rotate(90deg);
+    border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
+  }
+}
+</style>
+</head>
+<body>
+<body>
+<h1>Still <span class="red">  <b>HATE</b>  </span> me?</h1>
+<div class="buttons">
+<button class="btn btn-outline-success" id="yes" onclick="yesFunction()" type="button">
+<span>Yes 🙂</span>
+</button>
+<button class="btn btn-outline-danger btn-lg" id="no" onclick="noFunction()" type="button">
+<span>No 😳</span>
+</button>
+<div class="blob" id="down"></div>
+</div>
+<div class="watermark">
+        Made by <a href="https://github.com/RS-labhub">RS </a>❣️
+    </div>
+<div class="blob" id="up1"></div>
+<div class="blob" id="up2"></div>
+<div class="blob" id="up3"></div>
+<div class="blob" id="up4"></div>
+<div class="blob" id="up5"></div>
+<div class="blob" id="up6"></div>
+<script src="no1.js" type="text/javascript"></script>
+</body>
+<script>
+//Making bg
+function lines(){
+    let sizeW = Math.random() * 12;
+    let duration = Math.random() * 3;
+    let e = document. createElement('div');
+    e.setAttribute('class', 'circle');
+    document.body.appendChild(e);
+    e.style.width = 2*sizeW + 'px';
+    e.style.left = Math.random() * + innerWidth + 'px';
+    e.style.animationDuration = 2 + duration + 's';
+    setTimeout(function(){
+        document.body.removeChild(e)
+    }, 4000);
+}
+
+setInterval(function(){
+    lines();
+}, 200);
+
+//Linking to Yes and page
+function yesFunction() {
+    window.location.href = "../Page 7/no2.html";
+}
+function noFunction() {
+    window.location.href = "../Page 5/yes.html";
+}
+</script>
+
+</body>
+</html>

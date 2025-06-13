@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>Standalone Page</title>
+<style>
+.container {
+    position: relative;
+}
+  
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.btn{
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 20px;
+}
+
+#disable{
+    cursor: wait;
+}
+
+#enable{
+    display: none;
+}
+
+.watermark {
+    opacity: 0.5;
+    color: BLACK;
+    position: fixed;
+    top: 95%;
+    left: 47%;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+</style>
+</head>
+<body>
+<body>
+<div class="containter">
+<div class="center">
+<button class="btn" disabled="" id="disable">
+<span>Loading...</span>
+</button>
+<button class="btn" id="enable">
+<span>Click me</span>
+</button>
+</div>
+</div>
+<div class="watermark">
+        Made by <a href="https://github.com/RS-labhub">RS </a>❣️
+    </div>
+<script src="thirdPage.js"></script>
+</body>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Function to show the clickable button and hide the loading button
+  function showClickableButton() {
+    // Show the clickable button
+    document.getElementById("enable").style.display = "inline";
+
+    // Hide the loading button
+    document.getElementById("disable").style.display = "none";
+  }
+
+  // Function to navigate to the second page
+  function navigateToSecondPage() {
+    window.location.href = "../Page 3/forthPage.html";
+  }
+
+  // Call the showClickableButton function after 3 seconds
+  setTimeout(showClickableButton, 3000);
+
+  // Call the navigateToSecondPage function when the clickable button is clicked
+  document
+    .getElementById("enable")
+    .addEventListener("click", navigateToSecondPage);
+});
+</script>
+
+</body>
+</html>
